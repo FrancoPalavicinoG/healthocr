@@ -1,0 +1,63 @@
+# =================
+# Python / Django
+# =================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.log
+*.pot
+*.pyc
+*.egg-info/
+*.egg
+*.env
+db.sqlite3
+media/
+staticfiles/
+
+# Virtualenv
+venv/
+env/
+.venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Migrations (opcional si quieres versionarlas manualmente)
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# =================
+# Flutter / Dart
+# =================
+# Dart
+.dart_tool/
+.packages
+pubspec.lock
+
+# Flutter
+.buildlog/
+.flutter-plugins
+.flutter-plugins-dependencies
+.flutter-versions
+.flutter_export_environment.sh
+
+# iOS
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+
+# Android
+android/.gradle/
+android/app/build/
+android/local.properties
+android/key.properties
+
+# Web
+build/
