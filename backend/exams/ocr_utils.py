@@ -1,8 +1,12 @@
-# backend/exams/ocr_utils.py
+import pytesseract
+from PIL import Image
 
 def extract_text_from_image(image_path: str) -> str:
     """
-    Función dummy para OCR.
-    Por ahora solo retorna un texto fijo, luego puedes reemplazarlo con pytesseract o similar.
+    Procesa la imagen con Tesseract OCR y devuelve el texto extraído.
     """
-    return "Texto OCR simulado desde: " + image_path
+    try:
+        text = pytesseract.image_to_string(Image.open(image_path), lang="spa")
+        return text.strip()
+    except Exception as e:
+        return f"OCR error: {e}"
