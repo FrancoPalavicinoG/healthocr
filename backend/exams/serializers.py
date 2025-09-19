@@ -12,5 +12,5 @@ class ExamSerializer(serializers.ModelSerializer):
 class ExamResultSerializer(serializers.ModelSerializer):
     class Meta:
         model = ExamResult
-        field = ['id', 'test_name', 'value', 'unit', 'reference_range', 'created_at']
+        field = ['id', 'test_name', 'result', 'unit', 'reference_range', 'method', 'created_at']
         read_only_fields = ['id', 'created_at']

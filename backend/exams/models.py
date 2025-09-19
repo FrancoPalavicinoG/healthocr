@@ -26,7 +26,7 @@ class ExamResult(models.Model):
         related_name="results"      # Permite acceder con exam.results.all()
     )
     test_name = models.CharField(max_length=255) 
-    value = models.FloatField(null=True, blank=True)
+    result = models.FloatField(null=True, blank=True)
     unit = models.CharField(max_length=50, null=True, blank=True)
     reference_range = models.CharField(max_length=100, null=True, blank=True)
     method = models.CharField(max_length=255)
