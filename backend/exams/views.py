@@ -20,3 +20,7 @@ class ExamCreateView(generics.CreateAPIView):
     def create(self, request, *args, **kwargs):
         super().create(request, *args, **kwargs)
         return self._response
+    
+class ExamDetailView(generics.RetrieveAPIView):
+    queryset = Exam.objects.all()
+    serializer_class = ExamSerializer
