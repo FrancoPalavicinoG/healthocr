@@ -11,7 +11,7 @@ def create_exam_with_ocr(image_file, save_path=None) -> Exam:
     exam.result_text = text # Guardamos el resultado del OCR en el campo "result_text" del objeto exam.
     exam.save() # Update en Postgres
 
-    parsed_results = parse_exam(text)
+    parsed_results = parse_exam(text, filter_tests=False)
     for r in parsed_results:
         ExamResult.objects.create(
             exam=exam,
