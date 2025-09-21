@@ -30,6 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_dotenv: ^5.1.0
   camera: ^0.11.0+1      # Para usar la cámara del dispositivo
   image_picker: ^0.8.7+4 # Alternativa más sencilla si solo quieres capturar fotos
   http: ^1.1.0           # Para llamar a tu API

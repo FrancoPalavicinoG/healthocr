@@ -16,8 +16,7 @@ load_dotenv(dotenv_path=env_path)
 # --- Basic
 DEBUG = os.getenv("DEBUG", "False").lower() in ("1", "true", "yes")
 SECRET_KEY = os.getenv("SECRET_KEY", "change-me-now")
-ALLOWED_HOSTS = [h.strip() for h in os.getenv("ALLOWED_HOSTS", "127.0.0.1,localhost").split(",") if h.strip()]
-
+ALLOWED_HOSTS = ["*"]
 # --- Apps
 INSTALLED_APPS: List[str] = [
     "django.contrib.admin",
