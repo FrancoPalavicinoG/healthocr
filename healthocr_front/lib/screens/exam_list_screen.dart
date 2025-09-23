@@ -3,7 +3,7 @@ import 'dart:convert'; // Para decodificar JSON
 import 'package:http/http.dart' as http; // Para hacer peticiones HTTP
 
 // Importa la pantalla de la cámara
-import 'camera_screen.dart';
+import 'upload_exam_screen.dart';
 
 // Clase principal del screen de exámenes
 class ExamListScreen extends StatefulWidget {
@@ -86,12 +86,12 @@ class _ExamListScreenState extends State<ExamListScreen> {
                     );
                 },
             ),
-            // Boton para ir a la camara
+            // Boton para ir al upload exam 
             floatingActionButton: FloatingActionButton(
                 onPressed: () {
                     Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const CameraScreen()), // Navega al screen de cámara
+                        MaterialPageRoute(builder: (context) => const UploadExamScreen()), // Navega al screen de upload exam
                     );
                 },
                 child: const Icon(Icons.camera_alt), // Icono de cámara
