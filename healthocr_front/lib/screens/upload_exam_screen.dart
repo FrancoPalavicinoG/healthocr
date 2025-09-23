@@ -2,6 +2,8 @@ import 'dart:io'; // Para manejar archivos locales
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart'; // Para seleccionar imagenes
 import 'package:http/http.dart' as http; // Para hacer peticiones HTTP
+import 'dart:convert'; // Para decodificar JSON
+import 'exam_list_screen.dart';
 
 class UploadExamScreen extends StatefulWidget {
     const UploadExamScreen({super.key});
@@ -43,8 +45,21 @@ class _UploadExamScreenState extends State<UploadExamScreen> {
             var response = await request.send();
 
             if (response.statusCode == 200 || response.statusCode == 201) {
+                // Extraemos el examId creado para pasarlo como argumento al endpoint de ExamList
+                final respStr = await response.stream.bytesToString();
+                final respJson = json.decode(respStr);
+                final examId = respJson['id'];
+
                 ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text('Imagen subida correctamente')),
+                );
+                
+                // Navegamos a ExamList con el examId
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ExamListScreen(examId: examId),
+                    ),
                 );
             } else {
                 ScaffoldMessenger.of(context).showSnackBar(

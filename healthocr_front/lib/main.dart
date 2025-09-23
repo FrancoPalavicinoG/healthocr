@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/exam_list_screen.dart';
+import 'screens/upload_exam_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'HealthOCR Front',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: const ExamListScreen(), // Pantalla inicial
+      home: const UploadExamScreen(), // Pantalla inicial
     );
   }
 }

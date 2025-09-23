@@ -7,7 +7,8 @@ import 'upload_exam_screen.dart';
 
 // Clase principal del screen de exámenes
 class ExamListScreen extends StatefulWidget {
-  const ExamListScreen({super.key});
+  const ExamListScreen({super.key, required this.examId});
+  final int examId;
 
   @override
   State<ExamListScreen> createState() => _ExamListScreenState();
@@ -25,8 +26,8 @@ class _ExamListScreenState extends State<ExamListScreen> {
 
     // Función que hace el GET a la API y devuelve la lista de resultados
     Future<List<dynamic>> fetchExams() async {
-        // Se construye la URL de la API
-        final response = await http.get(Uri.parse('BASE_URL/api/exams/33'));
+        // Se construye la URL dinamicamante de la API con el examId recibido
+        final response = await http.get(Uri.parse('BASE_URL/api/exams/${widget.examId}'));
 
         if (response.statusCode == 200) {
             // Si la respuesta es correcta, decodificamos el JSON
@@ -43,7 +44,7 @@ class _ExamListScreenState extends State<ExamListScreen> {
         return Scaffold(
             // AppBar superior con titulo
             appBar: AppBar(
-                title: const Text('Examenes'),
+                title: Text('Examen ID: ${widget.examId}'),
             ),
             // Body principal del screen
             body: FutureBuilder<List<dynamic>>(
