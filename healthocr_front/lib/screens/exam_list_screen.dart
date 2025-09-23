@@ -5,6 +5,9 @@ import 'package:http/http.dart' as http; // Para hacer peticiones HTTP
 // Importa la pantalla de la cámara
 import 'upload_exam_screen.dart';
 
+// Importa baseUrl de constants
+import '../constants/constants.dart'; // Ruta relativa correcta desde lib/screens/
+
 // Clase principal del screen de exámenes
 class ExamListScreen extends StatefulWidget {
   const ExamListScreen({super.key, required this.examId});
@@ -27,7 +30,7 @@ class _ExamListScreenState extends State<ExamListScreen> {
     // Función que hace el GET a la API y devuelve la lista de resultados
     Future<List<dynamic>> fetchExams() async {
         // Se construye la URL dinamicamante de la API con el examId recibido
-        final response = await http.get(Uri.parse('BASE_URL/api/exams/${widget.examId}'));
+        final response = await http.get(Uri.parse('${AppConstants.baseUrl}/api/exams/${widget.examId}'));
 
         if (response.statusCode == 200) {
             // Si la respuesta es correcta, decodificamos el JSON

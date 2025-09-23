@@ -4,6 +4,7 @@ import 'package:image_picker/image_picker.dart'; // Para seleccionar imagenes
 import 'package:http/http.dart' as http; // Para hacer peticiones HTTP
 import 'dart:convert'; // Para decodificar JSON
 import 'exam_list_screen.dart';
+import '../constants/constants.dart'; // Ruta relativa correcta desde lib/screens/
 
 class UploadExamScreen extends StatefulWidget {
     const UploadExamScreen({super.key});
@@ -33,7 +34,7 @@ class _UploadExamScreenState extends State<UploadExamScreen> {
         try {
             var request = http.MultipartRequest(
                 'POST', 
-                Uri.parse('BASE_URL/api/exams/')
+                Uri.parse('${AppConstants.baseUrl}/api/exams/')
             );
 
             // Adjuntamos la imagen en el campo "image"
