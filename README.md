@@ -50,7 +50,8 @@
   ```bash
       brew install flutter
   ```
-2. **Get packages** 
+2. **Get packages**
+   > From the healthocr_front directory
   ```bash
       flutter pub get
   ```
